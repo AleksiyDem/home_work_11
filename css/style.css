@@ -1,0 +1,618 @@
+/* 
+&display=swap
+&subset=cyrillic-ext 
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap");
+
+/* font-family: 'Roboto', sans-serif; */
+
+/* ОБНУЛЕНИЕ СТИЛЕЙ */
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	box-sizing: border-box;
+}
+li {
+	list-style: none;
+}
+a,
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: inherit;
+	font-size: inherit;
+}
+img {
+	vertical-align: top;
+}
+html,
+body {
+	height: 100%;
+}
+html {
+	font-size: 16px; /* по умолчанию */
+}
+body {
+	line-height: 1;
+	/* color: #000; */
+	/* font-family:""; */
+	overflow-x: hidden;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.wrapper {
+	min-height: 100%;
+	padding: 15px;
+}
+/* ------------------------------ */
+/* 
+.block {
+	/* По умолчанию */
+/* position: static; */
+/*
+	top
+	left 
+	right
+	bottom
+	z-index
+	*/
+/* }
+.block__item {
+	padding: 15px;
+	color: #fff;
+	font-size: 20px;
+}
+.block__item_color-brown {
+	background-color: #794f45;
+}
+.block__item_color-purple {
+	background-color: #77608d;
+}
+.block__item_color-green {
+	background-color: #7a956b;
+}  */
+
+/* -------------- */
+
+/* Статичное положение объекта (по умолчанию) */
+/* top,left,right,bottom,z-index - не работают */
+/* position: static; */
+
+/* -------------- */
+
+/*
+Положение элемента устанавливается относительно 
+его исходного положения в коде. 
+Добавление свойств left, top, right и bottom изменяет 
+позицию элемента и сдвигает его в ту или иную сторону 
+от первоначального расположения.
+*/
+/* top,left,right,bottom,z-index - работают */
+/* position: relative; */
+
+/* -------------- */
+/*
+Элемент якобы вырывается из кода и зависайт в воздухе. 
+Он перестает влиять на остальные элементы. 
+Добавление свойств left, top, right и bottom 
+изменяет позицию элемента и сдвигает его 
+в ту или иную сторону относительно родителя 
+у колого задан параметр position: relative;
+
+1) Объект теряет свое "тело", и зависает в воздухе.
+2) Другие объекты занимают его место
+3) Объект превращается в строчный, тоесть 
+размер зависит от контента в нем
+4) Объект позиционируется обносительно первого родителя,
+для которого указано position: relative;
+5) Необходимо сопровождать свойствами top,left,right,bottom
+
+*/
+/* top,left,right,bottom,z-index - работают */
+/* position: absolute; */
+
+/* -------------- */
+
+/*
+Элемент якобы вырывается из кода и зависайт в воздухе. 
+Фиксируется, то есть не скролится вместе с содержимым. 
+Он перестает влиять на остальные элементы. 
+Добавление свойств left, top, right и bottom изменяет позицию элемента 
+и сдвигает его в ту или иную сторону относительно окна браузера.
+*/
+
+/*
+1) Объект теряет свое "тело", и зависает в воздухе.
+2) Другие объекты занимают его место
+3) Объект превращается в строчный, тоесть 
+размер зависит от контента в нем
+4) Объект позиционируется обносительно окна браузера
+5) Необходимо сопровождать свойствами top,left,right,bottom
+
+*/
+
+/* top,left,right,bottom,z-index - работают */
+/* position: fixed; */
+
+/* -------------- */
+
+/*
+Это гибридное сочетание значений static и fixed. 
+Изначально єлемент ведет себя как static 
+но после того как скролл доходит до его границы он становиться 
+fixed и прилипает к указанной позиции top или bottom.
+*/
+
+/* top,left,right,bottom,z-index - работают */
+/* position: sticky; */
+
+/* -------------- */
+
+/*
+Каждый элемент может находиться как ниже, 
+так и выше других объектов веб-страницы, 
+их размещением по z-оси и управляет z-index. 
+Это свойство работает только для элементов, 
+у которых значение position отличное от static.
+*/
+
+/* z-index: auto; */
+
+/* -------------- */
+/*
+Свойства позиционирования,
+можно указавать px, %, другие ед.
+top
+left
+right
+bottom
+*/
+
+/* -------------- */
+
+/* Практика */
+/*
+.list {
+}
+.list__item {
+	position: relative;
+	padding: 0px 0px 0px 25px;
+}
+.list__item::before {
+	content: "";
+	background: url("../img/icon.png") 0 0 no-repeat;
+	width: 25px;
+	height: 25px;
+	position: absolute;
+	top: -6px;
+	left: 0px;
+}
+.list__item:not(:last-child) {
+	margin: 0px 0px 10px 0px;
+}
+.header {
+	background-color: #7a956b;
+	padding: 20px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 100;
+}
+.main {
+	padding: 30px 0px 0px 0px;
+}
+.image {
+	position: relative;
+	display: inline-block;
+}
+.image::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+.image:hover::before {
+	opacity: 0;
+}
+.image__item {
+	width: 200px;
+}
+*/
+
+/* .test {
+	background: #f5f5f5;
+	padding: 110px 30px;
+	position: relative;
+	background: url("../img/blob.png") right -489px no-repeat;
+} */
+
+/* __________________Dog screen _____________________________ */
+
+.block__dog {
+	font-family: "Roboto", sans-serif;
+	max-width: 1440px;
+	/* padding: 95px 0 95px 0; */
+
+	/* margin: 0 0 50px 0; */
+}
+.top__background {
+	width: 100%;
+	max-width: 1440px;
+
+	background: url("../img/dog/slice.jpg") 0 -85px / cover no-repeat;
+}
+
+.dicorate__image {
+	position: relative;
+	left: 76%;
+	top: 15px;
+	z-index: 2;
+}
+
+.who-we-are {
+	/* background: #5d62b5; */
+	border-radius: 40px;
+	position: relative;
+	max-width: 1020px;
+	background: url("../img/dog/blob_3.svg") -30px 240px / 80% no-repeat, #5d62b5;
+	margin: -187px auto 0 auto;
+	position: relative;
+	z-index: 1;
+
+	/* left: 210px;
+	top: 720px; */
+}
+.who-we-are__title {
+	font-weight: 800;
+	font-size: 12px;
+	line-height: 200%;
+	letter-spacing: 2.5px;
+	text-transform: uppercase;
+	color: #f5f5f5;
+	padding: 100px 0 0 120px;
+	margin: 0 0 30px 0;
+	background: url("../img/dog/overline_mark.svg") 85px 104px/ 17px no-repeat;
+}
+
+.who-we-are__title-main {
+	max-width: 583px;
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 117%;
+	color: #ffffff;
+	margin: 0 0 33px 0;
+	padding: 0 0 0 87px;
+}
+.who-we-are__text {
+	max-width: 846px;
+	font-size: 16px;
+	line-height: 24px;
+	letter-spacing: 0.15px;
+	color: #f5f5f5;
+	padding: 0 0 354px 87px;
+}
+.image {
+	max-width: 82%;
+	display: block;
+	margin: -290px auto 0 auto;
+	position: relative;
+	z-index: 3;
+}
+/* ________________________________________________________ */
+
+/* ______home work Position at the page  */
+
+/* ___Relative______ */
+
+.block {
+	border: 5px double rgba(21, 81, 120, 0.87);
+	border-radius: 15px;
+	background-color: rgba(202, 200, 90, 0.37);
+	margin: 0 0 50px 0;
+}
+.block__item {
+	padding: 30px;
+	font-size: 20px;
+	margin: 30px;
+	max-width: 1000px;
+	border: 5px double rgba(21, 81, 120, 0.87);
+	border-radius: 15px;
+	position: relative;
+}
+
+.block__item_red {
+	background-color: rgb(161, 72, 72);
+	position: relative;
+	top: 50px;
+}
+.block__item_blue {
+	background-color: rgb(104, 96, 216);
+	position: relative;
+	display: block;
+	top: 60px;
+	z-index: 1;
+	opacity: 0.6;
+	left: 270px;
+}
+.block__item_green {
+	background-color: rgb(104, 163, 90);
+	position: relative;
+
+	z-index: 0;
+	top: 45px;
+}
+
+/* .block__item :not(:last-child) {
+	margin: 0 0 30px 0;
+} */
+
+/* ___________relative 2 __________________ */
+
+.block__relative {
+	border: 7px outset rgba(26, 113, 52, 0.87);
+	border-radius: 8px 8px 0px 0px;
+	background-color: rgba(229, 233, 10, 0.315);
+	margin: 0 0 40px 0;
+}
+.block__test {
+	background-color: rgba(192, 81, 174, 0.562);
+	max-width: 900px;
+	margin: 0 auto;
+	border: 5px outset rgba(26, 113, 52, 0.87);
+	border-radius: 8px 8px 0px 0px;
+	margin: 10px;
+	position: relative;
+	/* position: static; */
+}
+.box__color_red {
+	background-color: rgba(185, 29, 29, 0.589);
+	max-width: 180px;
+	/* top: 50%; */
+	left: 80%;
+	bottom: 30px;
+}
+.box__color_2 {
+	background-color: rgba(152, 160, 41, 0.616);
+	max-width: 180px;
+	top: 100px;
+	right: 20px;
+}
+
+.box__color_green {
+	background-color: rgba(56, 155, 78, 0.753);
+	max-width: 180px;
+	left: 50%;
+}
+
+.box__color_3 {
+	background-color: rgba(29, 98, 119, 0.76);
+	max-width: 180px;
+	bottom: 90px;
+}
+
+.box__color_yellow {
+	background-color: rgba(47, 23, 151, 0.849);
+	max-width: 180px;
+	left: 345px;
+	bottom: 50px;
+}
+
+.box__color_4 {
+	background-color: rgba(143, 44, 44, 0.76);
+	max-width: 180px;
+	left: 750px;
+	bottom: 30px;
+}
+
+/* .link__test {
+	display: block;
+	background-color: rgba(26, 113, 52, 0.87);
+	border: 2px solid black;
+} */
+
+.block__relative :hover {
+	position: static;
+	background-color: red;
+}
+
+/* .box__color_red :hover {
+	position: static;
+} */
+
+/*_____________ absolute _________ */
+
+.car__block {
+	margin: 0 0 70px 0;
+}
+
+.block__absolute-2 {
+	background-color: rgba(196, 187, 187, 0.753);
+	border: 1px solid black;
+	max-width: 900px;
+	padding: 30px;
+	position: relative;
+	margin: 0 auto;
+	max-width: 1000px;
+}
+.ditail {
+	/* margin: 0 0 120px 0; */
+	/* padding: 50px; */
+}
+.box__car_red {
+	background-color: rgba(196, 48, 48, 1);
+	position: absolute;
+	left: 60px;
+	top: 20px;
+	z-index: 4;
+	font-size: 32px;
+	line-height: 40px;
+}
+.box__car_green {
+	background-color: rgba(28, 185, 14, 1);
+	position: absolute;
+	left: 80px;
+	bottom: 40px;
+	z-index: 3;
+	font-size: 32px;
+	line-height: 40px;
+}
+.box__car_blue {
+	background-color: rgba(42, 44, 158, 0.719);
+	position: absolute;
+	left: 350px;
+	bottom: 10px;
+	z-index: 5;
+	font-size: 32px;
+	line-height: 40px;
+}
+.box__car_brown {
+	background-color: rgba(66, 56, 56, 1);
+	position: absolute;
+	left: 180px;
+	z-index: 1;
+	top: 50px;
+	font-size: 32px;
+	line-height: 40px;
+}
+
+/* ________________________ */
+
+.block__absolute-3 {
+	position: relative;
+	border: 2px dashed red;
+	padding: 45px;
+	background-color: #531c1c75;
+	max-width: 1200px;
+	margin: 0 0 60px 0;
+}
+.tier {
+}
+.car__red {
+	color: #fff;
+	background-color: rgb(122, 16, 16);
+	position: absolute;
+	/* display: block; */
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+.cer__green {
+	color: #fff;
+	background-color: rgba(43, 77, 170, 0.87);
+	position: absolute;
+	bottom: 100%;
+	left: 100%;
+	transform: translate(-100%, -100%);
+}
+.car__blue {
+	color: #fff;
+	background-color: rgb(51, 39, 39);
+	position: absolute;
+	top: 25%;
+	left: 25%;
+	transform: translate(-25%, -25%);
+}
+.box__brown {
+	color: #fff;
+	background-color: rgb(51, 39, 39);
+	position: absolute;
+	top: 75%;
+	left: 75%;
+	transform: translate(-75%, -75%);
+}
+
+/* ___________absolute 3___________  */
+
+.data__list {
+	max-width: 1200px;
+	border: 2px dotted blue;
+	position: relative;
+	padding: 150px;
+}
+
+.data__string-1 {
+	background-color: #000;
+	color: #fff;
+	font-size: 20px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 100px;
+	height: 100px;
+	margin: -50px 0 0 -50px;
+}
+
+.data__link {
+	display: inline;
+	vertical-align: middle;
+}
+/* _____________________ */
+
+.example__block {
+	border-radius: 15px;
+	background-color: rgba(139, 192, 109, 0.699);
+	padding: 20px;
+}
+.head {
+	/* background: url("../img/dog/blob_3.svg") 50% / cover no-repeat, #d89e33;
+	padding: 20px;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	 */
+}
+.head__text {
+	font-size: 25px;
+	color: #fff;
+}
+.head__list {
+	position: relative;
+}
+.head__string {
+	padding: 0 0 0 20px;
+	font-size: 20px;
+	color: #fff;
+	font-weight: 600;
+	letter-spacing: 1.2px;
+	margin: 0 0 10px 0;
+}
+
+.head__string ::before {
+	content: "";
+	border-radius: 50px;
+	background-color: blue;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+/* .header__string :not(:last-child) {
+	margin: 0 0 20px 0;
+} */
+
+.import__page {
+	background-color: rgba(139, 192, 109, 0.699);
+}
+.import__text {
+	color: #fff;
+}
